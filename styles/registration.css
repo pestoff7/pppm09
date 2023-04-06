@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Spectral', Spectral, serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  transition: text-decoration-color 300ms;
+}
+
+a:hover {
+  text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+
+/* Разметка обёртки */
+.wrapper{
+  display: grid;
+  grid-template-areas: "header"
+                        "main"
+                        "footer";
+  height: 100vh;
+}
+
+header{
+  grid-area: header;
+}
+
+main{
+  grid-area: main;
+}
+
+footer{
+  grid-area: footer;
+}
+/* Стили шапки */
+
+header{
+  display: grid;
+  grid-template-areas: "img_head header_links"
+                        "site_name_head header_links";
+  padding: 1em 15em 1em 15em;
+  background-color: #802B2B;
+  color: white;
+  /* max-height: 175px; */
+}
+
+@media (max-width: 600px) {
+  header {
+    display: grid;
+    grid-template-areas: "img_head"
+                        "site_name_head"
+                          "header_links";
+    padding: 1em 15em 1em 15em;
+    background-color: #802B2B;
+    color: white;
+  }
+}
+
+.header_links{
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-column-gap: 2em;
+  align-content: center;
+  text-align: center;
+  grid-area: header_links;
+  font-size: 24px;
+  justify-self: end;
+  list-style: none;
+}
+
+
+.img_head{
+  grid-area: img_head;
+  justify-self: center;
+}
+
+.site_name_head{
+  grid-area: site_name_head;
+  font-size: 36px;
+  justify-self: center;
+}
+
+/* Стили главного блока главной страницы */
+
+main{
+  display: grid;
+  grid-template-areas: "span_registr"
+                        "form_registr";
+  background-color: #BDB4A6;
+  padding: 20px 15em 4em 15em;
+}
+
+.span_registr{
+  grid-area: span_registr;
+  font-size: 64px;
+  text-align: center;
+}
+
+#form_registr{
+  display: grid;
+  grid-area: form_registr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1.5em;
+  justify-items: center;
+  padding-top: 2em;
+}
+
+#form_registr > input {
+  width: 1232px;
+  height: 75px;
+  border: none;
+  border-radius: 50px;
+  background-color: #d9d9d9;
+  font-size: 32px;
+  padding: 15px 30px 15px 30px;
+}
+
+@media (max-width: 900px) {
+  #form_registr > input {
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background-color: #d9d9d9;
+    font-size: 32px;
+    padding: 15px 30px 15px 30px;
+  }
+}
+
+#form_registr > button{
+  width: 225px;
+  height: 72px;
+  padding: 20px 40px 20px 40px;
+  background-color: #802B2B;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 24px;
+}
+
+
+/* Стили подвала */
+
+footer{
+  text-align: center;
+  padding: 2em 0 2em 0;
+  background-color: #687960;
+  font-size: 12px;
+}
