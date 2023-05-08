@@ -38,75 +38,11 @@
     <main>
       <span class="span_catalog">Каталог</span>
       <select name="category" id="category_select">
-        <option value="Книги">Книги</option>
-        <option value="Манга">Манга</option>
-        <option value="Канцелярия">Канцелярия</option>
+        <option value="books">Книги</option>
+        <option value="manga">Манга</option>
+        <option value="office">Канцелярия</option>
       </select>
       <div class="tovars">
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        <div>
-          <img src="" alt="" width="273px" height="175px">
-          <span class="name">Название</span>
-          <span class="description">Описание</span>
-          <span class="cost">Цена</span>
-          <button id="add_to_basket">В корзину</button>
-        </div>
-        
       </div>
     </main>
     <footer>
@@ -116,5 +52,25 @@
       </span>
     </footer>
   </div>
+  <script src="../scripts/jquery.js"></script>
+  <script>
+    let tovars = document.querySelector('.tovars');
+    let select = document.querySelector('#category_select');
+    select.onchange = function () {
+      $.ajax({
+        url: '../action/selectProducts.php',         /* Куда отправить запрос */
+        method: 'post',             /* Метод запроса (post или get) */
+        dataType: 'html',          /* Тип данных в ответе (xml, json, script, html). */
+        data: {
+          'option': select.value
+        },     /* Данные передаваемые в массиве */
+        success: function(data){
+          tovars.innerHTML = ''
+           /* функция которая будет выполнена после успешного запроса.  */
+          tovars.innerHTML = data/* В переменной data содержится ответ от index.php. */
+        }
+      });
+    }
+  </script>
 </body>
 </html>
